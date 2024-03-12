@@ -7,10 +7,13 @@ import model.entities.Seller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
 
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
 
         // dessa forma o programa não conhece a implementação, só a interface.
         // é também uma forma de injetar dependências sem explicitar a implementação
@@ -44,5 +47,12 @@ public class Program {
         sellerDao.update(seller);
         System.out.println("Update Complete");
 
+        System.out.println("\n=== TEST 6: seller delete =====");
+        System.out.print("Enter id for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed");
+
+        sc.close();
     }
 }
